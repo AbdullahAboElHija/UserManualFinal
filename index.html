@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WorkWithHelmetOnly - User Manual</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: linear-gradient(120deg, #e3f0ff 0%, #f9f9f9 100%);
+      margin: 0;
+      padding: 0;
+      color: #1a2233;
+    }
+    .container {
+      max-width: 980px;
+      margin: 36px auto 36px auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(30, 64, 175, 0.08);
+      padding: 36px 32px 48px 32px;
+    }
+    .manual-header {
+      text-align: center;
+      margin-bottom: 1.5em;
+    }
+    .manual-header h1 {
+      font-size: 2.7em;
+      color: #2563eb;
+      margin-bottom: 0.2em;
+      letter-spacing: 1px;
+      font-weight: 900;
+    }
+    .manual-header .welcome {
+      font-size: 1.22em;
+      color: #2563eb;
+      font-weight: 600;
+      margin-bottom: 0.7em;
+    }
+    .manual-header .project-title {
+      font-size: 1.5em;
+      color: #1a2233;
+      font-weight: 700;
+      margin-bottom: 0.2em;
+    }
+    .manual-header .authors, .manual-header .advisor {
+      color: #4b5563;
+      font-size: 1.08em;
+      margin-bottom: 0.2em;
+    }
+    .manual-header .github-link {
+      display: inline-block;
+      margin-top: 0.7em;
+      color: #fff;
+      background: #2563eb;
+      padding: 8px 20px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+    }
+    .manual-header .github-link:hover {
+      background: #1e40af;
+    }
+    .desc {
+      font-size: 1.13em;
+      margin: 2em 0 2.5em 0;
+      color: #374151;
+      text-align: center;
+    }
+    .features {
+      margin-bottom: 2.5em;
+      background: #f1f5fd;
+      border-radius: 10px;
+      padding: 1.2em 1.5em 1.2em 1.5em;
+    }
+    .features h2 {
+      font-size: 1.25em;
+      color: #2563eb;
+      margin-bottom: 0.5em;
+    }
+    .features ul {
+      margin: 0 0 0 1.2em;
+      padding: 0;
+      color: #333;
+    }
+    .features li {
+      margin-bottom: 0.5em;
+      font-size: 1.08em;
+    }
+    .key-actions {
+      margin-bottom: 2.8em;
+      background: #e0e7ff;
+      border-radius: 12px;
+      padding: 1.5em 1.2em 1.5em 1.2em;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.06);
+    }
+    .key-actions h2 {
+      font-size: 1.35em;
+      color: #1e40af;
+      margin-bottom: 1.1em;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    .action-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      justify-content: center;
+    }
+    .action-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.07);
+      padding: 1.1em 1.2em 1.1em 1.2em;
+      min-width: 220px;
+      max-width: 270px;
+      flex: 1 1 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.13s;
+    }
+    .action-card:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 6px 18px rgba(37,99,235,0.13);
+    }
+    .action-card .icon {
+      font-size: 2.2em;
+      color: #2563eb;
+      margin-bottom: 0.5em;
+    }
+    .action-card .action-title {
+      font-weight: 700;
+      color: #1e40af;
+      font-size: 1.13em;
+      margin-bottom: 0.3em;
+      text-align: center;
+    }
+    .action-card .action-desc {
+      color: #374151;
+      font-size: 1em;
+      text-align: center;
+    }
+    .screenshots {
+      margin-bottom: 2.5em;
+    }
+    .screenshots h2 {
+      font-size: 1.3em;
+      color: #2563eb;
+      margin-bottom: 0.7em;
+      text-align: center;
+    }
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+    .screenshot {
+      background: #f1f5fd;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.07);
+      padding: 18px 12px 12px 12px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .screenshot img {
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      min-height: 220px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 12px rgba(37,99,235,0.10);
+      background: #e0e7ff;
+      object-fit: contain;
+    }
+    .caption {
+      font-size: 1.05em;
+      color: #1e40af;
+      font-weight: 600;
+      margin-top: 0.2em;
+    }
+    .qr-section {
+      margin-top: 2.5em;
+      text-align: center;
+    }
+    .qr-section h2 {
+      font-size: 1.2em;
+      color: #2563eb;
+      margin-bottom: 0.5em;
+    }
+    @media (max-width: 900px) {
+      .container {
+        padding: 12px 2vw 24px 2vw;
+      }
+      .screenshot-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+      }
+    }
+    @media (max-width: 600px) {
+      .manual-header h1 {
+        font-size: 1.5em;
+      }
+      .manual-header .project-title {
+        font-size: 1.1em;
+      }
+      .screenshot img {
+        min-height: 120px;
+      }
+      .action-card {
+        min-width: 170px;
+        max-width: 100vw;
+        padding: 0.8em 0.5em;
+      }
+      .action-card .icon {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="manual-header">
+      <h1>User Manual</h1>
+      <div class="welcome">Welcome! This page will guide you through using the WorkWithHelmetOnly system for automated PPE detection and safety management.</div>
+      <div class="project-title">WorkWithHelmetOnly</div>
+      <div class="authors">Abdullah Abo El-Hija, Zenab Abd Elghani</div>
+      <div class="advisor">Advisor: Dr. Zeev Frenkel</div>
+      <a class="github-link" href="https://github.com/AbdullahAboElHija/FinalProject" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+    <div class="desc">
+      WorkWithHelmetOnly provides automated PPE detection using advanced computer vision and deep learning. The system offers real-time monitoring, instant violation alerts, comprehensive tracking across video frames, and detailed compliance reporting for construction safety management.
+    </div>
+    <div class="features">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Automated detection of PPE (helmets) in real-time video streams</li>
+        <li>Instant alerts for safety violations</li>
+        <li>Comprehensive tracking of individuals across video frames</li>
+        <li>Detailed compliance and violation reporting</li>
+        <li>User-friendly dashboard for monitoring and analytics</li>
+      </ul>
+    </div>
+    <div class="key-actions">
+      <h2>How to Use</h2>
+      <div class="action-steps">
+        <div class="action-card">
+          <div class="icon"><i class="fas fa-tachometer-alt"></i></div>
+          <div class="action-title">Access the Dashboard</div>
+          <div class="action-desc">Open the main dashboard to monitor live video feeds and system status.</div>
+        </div>
+        <div class="action-card">
+          <div class="icon"><i class="fas fa-upload"></i></div>
+          <div class="action-title">Upload a Video</div>
+          <div class="action-desc">Use the upload interface to submit recorded videos for PPE detection and analysis.</div>
+        </div>
+        <div class="action-card">
+          <div class="icon"><i class="fas fa-video"></i></div>
+          <div class="action-title">View Detection Results</div>
+          <div class="action-desc">Watch as the system processes the video and highlights detected helmets and violations in real time.</div>
+        </div>
+        <div class="action-card">
+          <div class="icon"><i class="fas fa-chart-bar"></i></div>
+          <div class="action-title">Check Analytics</div>
+          <div class="action-desc">Navigate to the analytics section to review compliance rates, violation trends, and detailed reports.</div>
+        </div>
+        <div class="action-card">
+          <div class="icon"><i class="fas fa-eye"></i></div>
+          <div class="action-title">Interpret Analytics</div>
+          <div class="action-desc">Use the visual charts and tables to understand safety performance and identify areas for improvement.</div>
+        </div>
+        <div class="action-card">
+          <div class="icon"><i class="fas fa-bell"></i></div>
+          <div class="action-title">Receive Alerts</div>
+          <div class="action-desc">Stay informed with instant alerts for any detected safety violations.</div>
+        </div>
+      </div>
+    </div>
+    <div class="screenshots">
+      <h2>Screenshots</h2>
+      <div class="screenshot-grid">
+        <div class="screenshot">
+          <img src="photos/main.png" alt="Main Dashboard">
+          <div class="caption">Main Dashboard</div>
+        </div>
+        <div class="screenshot">
+          <img src="photos/mainDashboardCam.png" alt="Dashboard Camera View">
+          <div class="caption">Dashboard Camera View</div>
+        </div>
+        <div class="screenshot">
+          <img src="photos/mainUploadd.png" alt="Upload Video Interface">
+          <div class="caption">Upload Video Interface</div>
+        </div>
+        <div class="screenshot">
+          <img src="photos/proccessVideo.png" alt="Processing Video">
+          <div class="caption">Processing Video</div>
+        </div>
+        <div class="screenshot">
+          <img src="photos/DetectVideo.png" alt="Detection in Video">
+          <div class="caption">Detection in Video</div>
+        </div>
+        <div class="screenshot">
+          <img src="photos/MailReciveViolation.png" alt="Receiving Violation Notification">
+          <div class="caption">Receiving Violation Notification</div>
+        </div>
+        <div class="screenshot">
+          <img src="photos/analytics1.png" alt="Analytics 1">
+          <div class="caption">Analytics - Overview</div>
+        </div>
+        <div class="screenshot">
+          <img src="photos/analytics2.png" alt="Analytics 2">
+          <div class="caption">Analytics - Violations</div>
+        </div>
+        <div class="screenshot">
+          <img src="photos/analytics3.png" alt="Analytics 3">
+          <div class="caption">Analytics - Compliance</div>
+        </div>
+        <div class="screenshot">
+          <img src="photos/analytics4.png" alt="Analytics 4">
+          <div class="caption">Analytics - Trends</div>
+        </div>
+      </div>
+    </div>
+    <div class="qr-section">
+      <h2>Project GitHub QR Code</h2>
+      <canvas id="qr-code"></canvas>
+      <div style="margin-top: 0.5em; color: #555; font-size: 0.98em;">Scan to visit the GitHub repository</div>
+    </div>
+  </div>
+  <script>
+    // Generate QR code for GitHub repo
+    var qr = new QRious({
+      element: document.getElementById('qr-code'),
+      value: 'https://github.com/AbdullahAboElHija/FinalProject',
+      size: 140,
+      background: 'white',
+      foreground: '#2563eb',
+      level: 'H'
+    });
+  </script>
+</body>
+</html>
